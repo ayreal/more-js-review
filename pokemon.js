@@ -14,17 +14,26 @@ const Pokemon = (() => {
       // debugger;
     }
 
-    // pokeFinder(pokemon) {
-    //   debugger;
-    // }
-
     render() {
+      console.log(this);
       return `
+        <img src="${this.img}"></img><br>
         <p>name: ${this.name}</p>
         <p>type: ${this.type}</p>
         <p>num: ${this.num}</p>
+        <p id="all-evolutions">next evolution:</p>
 
       `;
+    }
+
+    renderEvolutions() {
+      return this.next_evolution.map(e => {
+        console.log(e);
+        // debugger;
+        let evolution = pokeFinder(`${e.name}`); // this is a Pokemon obj
+        return `
+        <a href="#" onClick="">${e.name}</a>`;
+      });
     }
 
     static all() {
